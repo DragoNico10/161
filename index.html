@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js "></script>
+        <script src="throw.js"></script>
+    </head>
+    <body style="overflow: hidden;">
+        <a-scene id="scene" physics="debug:true">
+            <a-assets>
+                <a-asset-item id="bowling-pin-obj" src="./assets/Bowling Pin.obj"></a-asset-item>
+                <a-asset-item id="bowling-pin-mtl" src="./assets/Bowling Pin.mtl"></a-asset-item>
+                <a-asset-item id="bowling-ball" src="assets/bowlingball.glb"></a-asset-item>
+            </a-assets>
+            <a-sky color="#A6B0F8"></a-sky>
+            <a-entity id="camera" camera position="0 0.8 0" rotation="-10 0 0" wasd-controls look-controls="pointerLockEnabled:false"></a-entity>
+            <a-plane position="0 -0.8 0" rotation="-90 0 0" color="#F94EF8" width="8" height="50" static-body></a-plane>
+            <a-entity position="0 0 -10" obj-model="obj: #bowling-pin-obj; mtl: #bowling-pin-mtl;" scale="0.4 0.4 0.4" dynamic-body="mass:1.5;shape:cylinder;"></a-entity>
+            <a-entity position="0.5 0 -10.5" obj-model="obj: #bowling-pin-obj; mtl: #bowling-pin-mtl;" scale="0.4 0.4 0.4" dynamic-body="mass:1.5;shape:cylinder"></a-entity>
+            <a-entity position="-0.5 0 -10.5" obj-model="obj: #bowling-pin-obj; mtl: #bowling-pin-mtl;" scale="0.4 0.4 0.4" dynamic-body="mass:1.5;shape:cylinder"></a-entity>
+            <a-entity position="1 0 -11" obj-model="obj: #bowling-pin-obj; mtl: #bowling-pin-mtl;" scale="0.4 0.4 0.4" dynamic-body="mass:1.5;shape:cylinder"></a-entity>
+            <a-entity position="0 0 -11" obj-model="obj: #bowling-pin-obj; mtl: #bowling-pin-mtl;" scale="0.4 0.4 0.4" dynamic-body="mass:1.5;shape:cylinder"></a-entity>
+            <a-entity position="-1 0 -11" obj-model="obj: #bowling-pin-obj; mtl: #bowling-pin-mtl;" scale="0.4 0.4 0.4" dynamic-body="mass:1.5;shape:cylinder"></a-entity>
+            <a-entity position="-1.5 0 -11.5" obj-model="obj: #bowling-pin-obj; mtl: #bowling-pin-mtl;" scale="0.4 0.4 0.4" dynamic-body="mass:1.5;shape:cylinder"></a-entity>
+            <a-entity position="-0.5 0 -11.5" obj-model="obj: #bowling-pin-obj; mtl: #bowling-pin-mtl;" scale="0.4 0.4 0.4" dynamic-body="mass:1.5;shape:cylinder"></a-entity>
+            <a-entity position="0.5 0 -11.5" obj-model="obj: #bowling-pin-obj; mtl: #bowling-pin-mtl;" scale="0.4 0.4 0.4" dynamic-body="mass:1.5;shape:cylinder"></a-entity>
+            <a-entity position="1.5 0 -11.5" obj-model="obj: #bowling-pin-obj; mtl: #bowling-pin-mtl;" scale="0.4 0.4 0.4" dynamic-body="mass:1.5;shape:cylinder"></a-entity>
+            <a-entity bowling-balls></a-entity>
+        </a-scene>
+    </body>
+</html>
