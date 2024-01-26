@@ -16,6 +16,7 @@ AFRAME.registerComponent('bowling-balls', {
                 ball.setAttribute("position",{x:pos.x,y:pos.y,z:pos.z})
                 ball.setAttribute("velocity",dir.multiplyScalar(-10))
                 ball.setAttribute("dynamic-body","mass:7.26")
+                window.addEventListener("collide", this.impulse)
                 console.log(ball)
                 var scene = document.querySelector("#scene")
                 scene.appendChild(ball)
@@ -25,5 +26,14 @@ AFRAME.registerComponent('bowling-balls', {
                 },10000)
             }
         })
+    },
+    impulse: function(e){
+        var ball = e.detail.target.el
+        var hit = e.detail.body.el
+        if(hit.id.includes("pin")){
+            var force = new CANNON.Vec3(0,1,-15)
+            var WorldPoint = new CANNON.Vec3().copy(hit.getAttribute("position"))
+            hit.body.applyForce(force,WorldPoint)
+        }
     }
 })
